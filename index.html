@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Portal</title>
+    <!-- <style>
+        body{
+            background-color: crimson;
+        }
+    </style> -->
+    <!-- <link id="main-style" rel="stylesheet" href="./style.css"> -->
+    <script>
+        const searchParams = new URLSearchParams(window.location.search);
+        let themeCss = './style.css'
+        if (searchParams.get('id')) {
+            if (searchParams.get('id') === 'pluto') {
+                themeCss = './dark-style.css'
+
+            }
+            if (searchParams.get('id') === 'pippo') {
+                themeCss = './style.css'
+            }
+        }
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = themeCss;
+        document.head.appendChild(link);
+    </script>
+</head>
+
+<body>
+    <super-header id="header" super-title="gioconi da paura" title-color="lime" site-theme="light"></super-header>
+    <button onclick="changeTitleColor()">schiacciami</button>
+    <games-list></games-list>
+    <super-footer></super-footer>
+</body>
+<script src="./web-components/game-card-componet.js"></script>
+<script src="./web-components/games-list-component.js"></script>
+<script src="./web-components/super-footer-component.js"></script>
+<script src="./web-components/super-header-component.js"></script>
+<!-- <script src="./theme-switch.js"></script> -->
+<script src="./main.js"></script>
+
+</html>
